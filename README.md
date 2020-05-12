@@ -187,26 +187,6 @@
     - 고객이 업로드된 동영상에 대하여 환급 신청을 하면 환급 정책에 따라 환급된다 (ok)
 
 
-====================== 아래 삭제 예정 =============================
-
-![image](https://user-images.githubusercontent.com/487999/79684170-47256a00-826a-11ea-9777-e16fafff519a.png)
-
-    - 고객이 주문을 취소할 수 있다 (ok)
-    - 주문이 취소되면 배달이 취소된다 (ok)
-    - 고객이 주문상태를 중간중간 조회한다 (View-green sticker 의 추가로 ok) 
-    - 주문상태가 바뀔 때 마다 카톡으로 알림을 보낸다 (?)
-
-
-### 모델 수정
-
-![image](https://user-images.githubusercontent.com/487999/79684176-4e4c7800-826a-11ea-8deb-b7b053e5d7c6.png)
-    
-    - 수정된 모델은 모든 요구사항을 커버함.
-    
-====================== 위 삭제 예정 =============================
-
-
-
 ### 비기능 요구사항에 대한 검증
 
 ![image](https://user-images.githubusercontent.com/63624229/81632274-d1fe1c80-9444-11ea-9046-7b525d3f2ac1.png)
@@ -216,7 +196,6 @@
         
         
 
-
 ## 헥사고날 아키텍처 다이어그램 도출
     
 ![image](https://user-images.githubusercontent.com/63624229/81636900-f6abc180-944f-11ea-9d59-17b85cf75908.png)
@@ -225,7 +204,6 @@
     - Chris Richardson, MSA Patterns 참고하여 Inbound adaptor와 Outbound adaptor를 구분함
     - 호출관계에서 PubSub 과 Req/Resp 를 구분함
     - 서브 도메인과 바운디드 컨텍스트의 분리: 각 팀의 KPI 별로 아래와 같이 관심 구현 스토리를 나눠가짐
-
 
 
 # 구현:
