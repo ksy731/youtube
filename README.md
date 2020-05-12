@@ -143,21 +143,20 @@
 
 
 ### 액터, 커맨드 부착하여 읽기 좋게
-https://user-images.githubusercontent.com/63624229/81533574-63b44e00-93a1-11ea-9b96-43acb9b2e9aa.jpg
-
-
-
-
+![20200511_140728](https://user-images.githubusercontent.com/63624229/81533574-63b44e00-93a1-11ea-9b96-43acb9b2e9aa.jpg)
+![20200511_142445](https://user-images.githubusercontent.com/63624229/81533585-6747d500-93a1-11ea-96d8-72cfc3c8e75d.jpg)
+![20200511_143436](https://user-images.githubusercontent.com/63624229/81533594-6dd64c80-93a1-11ea-8296-4fdf2143f947.jpg)
 
 
 ### 어그리게잇으로 묶기
-![image](https://user-images.githubusercontent.com/487999/79683618-52769680-8266-11ea-9c21-48d6812444ba.png)
+![20200511_143718](https://user-images.githubusercontent.com/63624229/81533625-7a5aa500-93a1-11ea-80b8-94e0208674fa.jpg)
 
     - app의 Order, store 의 주문처리, 결제의 결제이력은 그와 연결된 command 와 event 들에 의하여 트랜잭션이 유지되어야 하는 단위로 그들 끼리 묶어줌
 
 ### 바운디드 컨텍스트로 묶기
 
-![image](https://user-images.githubusercontent.com/487999/79683625-560a1d80-8266-11ea-9790-40d68a36d95d.png)
+![20200511_143926](https://user-images.githubusercontent.com/63624229/81533653-88a8c100-93a1-11ea-8d8c-c2e59468b65e.jpg)
+
 
     - 도메인 서열 분리 
         - Core Domain:  app(front), store : 없어서는 안될 핵심 서비스이며, 연견 Up-time SLA 수준을 99.999% 목표, 배포주기는 app 의 경우 1주일 1회 미만, store 의 경우 1개월 1회 미만
@@ -166,15 +165,16 @@ https://user-images.githubusercontent.com/63624229/81533574-63b44e00-93a1-11ea-9
 
 ### 폴리시 부착 (괄호는 수행주체, 폴리시 부착을 둘째단계에서 해놔도 상관 없음. 전체 연계가 초기에 드러남)
 
-![image](https://user-images.githubusercontent.com/487999/79683633-5aced180-8266-11ea-8f42-c769eb88dfb1.png)
+![20200511_150001](https://user-images.githubusercontent.com/63624229/81533663-8e060b80-93a1-11ea-88c7-a09f9ca34cfd.jpg)
 
 ### 폴리시의 이동과 컨텍스트 매핑 (점선은 Pub/Sub, 실선은 Req/Resp)
 
-![image](https://user-images.githubusercontent.com/487999/79683641-5f938580-8266-11ea-9fdb-4e80ff6642fe.png)
+![20200511_150803](https://user-images.githubusercontent.com/63624229/81533686-978f7380-93a1-11ea-8360-4b2145bebcd3.jpg)
+
 
 ### 완성된 1차 모형
 
-![image](https://user-images.githubusercontent.com/487999/79683646-63bfa300-8266-11ea-9bc5-c0b650507ac8.png)
+![20200511_154302](https://user-images.githubusercontent.com/63624229/81533695-9b22fa80-93a1-11ea-96f6-8169c0fede0c.jpg)
 
     - View Model 추가
 
