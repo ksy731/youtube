@@ -356,8 +356,11 @@ public interface VideoServiceRepository extends PagingAndSortingRepository<Video
 # video 서비스의 동영상 업로드 처리
 http localhost:8081/video id=1
 
-# client 서비스의 배달처리
+# client 서비스의 회원가입
 http localhost:8083/주문처리s orderId=1
+
+# client 서비스의 채널 생성
+http 
 
 # 주문 상태 확인
 http localhost:8081/orders/1
