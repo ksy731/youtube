@@ -187,6 +187,8 @@
     - 고객이 업로드된 동영상에 대하여 환급 신청을 하면 환급 정책에 따라 환급된다 (ok)
 
 
+====================== 아래 삭제 예정 =============================
+
 ![image](https://user-images.githubusercontent.com/487999/79684170-47256a00-826a-11ea-9777-e16fafff519a.png)
 
     - 고객이 주문을 취소할 수 있다 (ok)
@@ -200,10 +202,14 @@
 ![image](https://user-images.githubusercontent.com/487999/79684176-4e4c7800-826a-11ea-8deb-b7b053e5d7c6.png)
     
     - 수정된 모델은 모든 요구사항을 커버함.
+    
+====================== 아래 삭제 예정 =============================
+
+
 
 ### 비기능 요구사항에 대한 검증
 
-![image](https://user-images.githubusercontent.com/487999/79684184-5c9a9400-826a-11ea-8d87-2ed1e44f4562.png)
+![image](https://user-images.githubusercontent.com/63624229/81632274-d1fe1c80-9444-11ea-9046-7b525d3f2ac1.png)
 
     - 마이크로 서비스를 넘나드는 시나리오에 대한 트랜잭션 처리
         - 고객 주문시 결제처리:  결제가 완료되지 않은 주문은 절대 받지 않는다는 경영자의 오랜 신념(?) 에 따라, ACID 트랜잭션 적용. 주문와료시 결제처리에 대해서는 Request-Response 방식 처리
