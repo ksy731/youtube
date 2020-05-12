@@ -169,21 +169,17 @@
 
 ### 폴리시의 이동과 컨텍스트 매핑 (점선은 Pub/Sub, 실선은 Req/Resp)
 
-![20200511_143926](https://user-images.githubusercontent.com/63624229/81533653-88a8c100-93a1-11ea-8d8c-c2e59468b65e.jpg)
-
+![20200511_150001](https://user-images.githubusercontent.com/63624229/81533663-8e060b80-93a1-11ea-88c7-a09f9ca34cfd.jpg)
 
 ### 완성된 1차 모형
 
-![20200511_150001](https://user-images.githubusercontent.com/63624229/81533663-8e060b80-93a1-11ea-88c7-a09f9ca34cfd.jpg)
+![20200511_154304](https://user-images.githubusercontent.com/63624229/81533714-9fe7ae80-93a1-11ea-8a9d-c8f1bdcbe804.jpg)
 
     - View Model 추가
 
 ### 1차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
 
-![20200511_150803](https://user-images.githubusercontent.com/63624229/81533686-978f7380-93a1-11ea-8360-4b2145bebcd3.jpg)
-![20200511_154302](https://user-images.githubusercontent.com/63624229/81533695-9b22fa80-93a1-11ea-96f6-8169c0fede0c.jpg)
-![image](https://user-images.githubusercontent.com/487999/79684167-3ecd2f00-826a-11ea-806a-957362d197e3.png)
-
+![20200511_154304](https://user-images.githubusercontent.com/63624229/81533714-9fe7ae80-93a1-11ea-8a9d-c8f1bdcbe804.jpg)
     - 고객이 메뉴를 선택하여 주문한다 (ok)
     - 고객이 결제한다 (ok)
     - 주문이 되면 주문 내역이 입점상점주인에게 전달된다 (ok)
