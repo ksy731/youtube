@@ -144,8 +144,6 @@
 
 ### 액터, 커맨드 부착하여 읽기 좋게
 ![20200511_140728](https://user-images.githubusercontent.com/63624229/81533574-63b44e00-93a1-11ea-9b96-43acb9b2e9aa.jpg)
-![20200511_142445](https://user-images.githubusercontent.com/63624229/81533585-6747d500-93a1-11ea-96d8-72cfc3c8e75d.jpg)
-![20200511_143436](https://user-images.githubusercontent.com/63624229/81533594-6dd64c80-93a1-11ea-8296-4fdf2143f947.jpg)
 
 
 ### 어그리게잇으로 묶기
@@ -156,7 +154,7 @@
 
 ### 바운디드 컨텍스트로 묶기
 
-![20200511_143926](https://user-images.githubusercontent.com/63624229/81533653-88a8c100-93a1-11ea-8d8c-c2e59468b65e.jpg)
+![20200511_142445](https://user-images.githubusercontent.com/63624229/81533585-6747d500-93a1-11ea-96d8-72cfc3c8e75d.jpg)
 
 
     - 도메인 서열 분리 
@@ -167,21 +165,23 @@
 
 ### 폴리시 부착 (괄호는 수행주체, 폴리시 부착을 둘째단계에서 해놔도 상관 없음. 전체 연계가 초기에 드러남)
 
-![20200511_150001](https://user-images.githubusercontent.com/63624229/81533663-8e060b80-93a1-11ea-88c7-a09f9ca34cfd.jpg)
+![20200511_143436](https://user-images.githubusercontent.com/63624229/81533594-6dd64c80-93a1-11ea-8296-4fdf2143f947.jpg)
 
 ### 폴리시의 이동과 컨텍스트 매핑 (점선은 Pub/Sub, 실선은 Req/Resp)
 
-![20200511_150803](https://user-images.githubusercontent.com/63624229/81533686-978f7380-93a1-11ea-8360-4b2145bebcd3.jpg)
+![20200511_143926](https://user-images.githubusercontent.com/63624229/81533653-88a8c100-93a1-11ea-8d8c-c2e59468b65e.jpg)
 
 
 ### 완성된 1차 모형
 
-![20200511_154302](https://user-images.githubusercontent.com/63624229/81533695-9b22fa80-93a1-11ea-96f6-8169c0fede0c.jpg)
+![20200511_150001](https://user-images.githubusercontent.com/63624229/81533663-8e060b80-93a1-11ea-88c7-a09f9ca34cfd.jpg)
 
     - View Model 추가
 
 ### 1차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
 
+![20200511_150803](https://user-images.githubusercontent.com/63624229/81533686-978f7380-93a1-11ea-8360-4b2145bebcd3.jpg)
+![20200511_154302](https://user-images.githubusercontent.com/63624229/81533695-9b22fa80-93a1-11ea-96f6-8169c0fede0c.jpg)
 ![image](https://user-images.githubusercontent.com/487999/79684167-3ecd2f00-826a-11ea-806a-957362d197e3.png)
 
     - 고객이 메뉴를 선택하여 주문한다 (ok)
