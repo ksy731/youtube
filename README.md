@@ -143,7 +143,12 @@
 
 
 ### 액터, 커맨드 부착하여 읽기 좋게
-![image](https://user-images.githubusercontent.com/487999/79683614-4ee30f80-8266-11ea-9a50-68cdff2dcc46.png)
+https://user-images.githubusercontent.com/63624229/81533574-63b44e00-93a1-11ea-9b96-43acb9b2e9aa.jpg
+
+
+
+
+
 
 ### 어그리게잇으로 묶기
 ![image](https://user-images.githubusercontent.com/487999/79683618-52769680-8266-11ea-9c21-48d6812444ba.png)
