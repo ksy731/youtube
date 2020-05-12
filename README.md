@@ -198,7 +198,7 @@
 
 ## 헥사고날 아키텍처 다이어그램 도출
     
-![image](https://user-images.githubusercontent.com/63624229/81636900-f6abc180-944f-11ea-9d59-17b85cf75908.png)
+![image](https://user-images.githubusercontent.com/63624229/81647003-45b12100-9467-11ea-998c-171deee11fc9.png)
 
 
     - Chris Richardson, MSA Patterns 참고하여 Inbound adaptor와 Outbound adaptor를 구분함
