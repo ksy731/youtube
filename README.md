@@ -9,7 +9,7 @@
 
 # Table of contents
 
-- [예제 - 음식배달](#---)
+- [동영상 공유 플랫폼](#---)
   - [서비스 시나리오](#서비스-시나리오)
   - [체크포인트](#체크포인트)
   - [분석/설계](#분석설계)
@@ -28,8 +28,6 @@
 
 # 서비스 시나리오
 
-배달의 민족 커버하기 - https://1sung.tistory.com/106
-
 
 기능적 요구사항
 
@@ -47,6 +45,7 @@
 
 
 비기능적 요구사항
+
 1. 트랜잭션
     1. 동영상이 등록/수정 시 정책에 맞는지 확인되어야 한다          Async 호출 
     2. 동영상이 등록/수정/삭제 시 채널 정보 업데이트가 되어야 한다  Async 호출
@@ -354,7 +353,7 @@ public interface VideoServiceRepository extends PagingAndSortingRepository<Video
 - 적용 후 REST API 의 테스트
 ```
 # video 서비스의 동영상 업로드 처리
-http localhost:8081/video id=1
+http localhost:8081/videoServices videoId=1
 
 # client 서비스의 회원가입
 http localhost:8083/주문처리s orderId=1
