@@ -133,7 +133,7 @@
 
 
 ### 이벤트 도출
-![image](https://user-images.githubusercontent.com/487999/79683604-47bc0180-8266-11ea-9212-7e88c9bf9911.png)
+![image](https://user-images.githubusercontent.com/63624229/81628763-7af44980-943c-11ea-9f64-5bd3a577ac04.png)
 
 ### 부적격 이벤트 탈락
 ![20200511_134543](https://user-images.githubusercontent.com/63624229/81533541-5c8d4000-93a1-11ea-9686-68bf31734676.jpg)
