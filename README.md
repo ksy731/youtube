@@ -179,7 +179,8 @@
 
 ### 1차 완성본에 대한 기능적/비기능적 요구사항을 커버하는지 검증
 
-![20200511_154304](https://user-images.githubusercontent.com/63624229/81533714-9fe7ae80-93a1-11ea-8a9d-c8f1bdcbe804.jpg)
+![image](https://user-images.githubusercontent.com/63624229/81630979-e1c83180-9441-11ea-8f8f-dffa0de5b806.png)
+
     - 고객이 메뉴를 선택하여 주문한다 (ok)
     - 고객이 결제한다 (ok)
     - 주문이 되면 주문 내역이 입점상점주인에게 전달된다 (ok)
