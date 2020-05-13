@@ -625,7 +625,18 @@ kubectl get deploy policy -w
 
 ![image](https://user-images.githubusercontent.com/19707715/81771712-b2d3bd80-951e-11ea-91d7-31fd46ee2035.png)
 
+## 장애 격리 시나리오
+(1)policy pod replic 를 0으로 수정 (장애상황으로 가정)
+![현재 디플로이](https://user-images.githubusercontent.com/19707715/81775282-81132480-9527-11ea-941b-b0ab485117b1.PNG)
 
+(2)video 서비스에서 event 5개 발생
+
+(3)policy pod replica 를 1로 다시 설정
+![레플리카수 늘리기](https://user-images.githubusercontent.com/19707715/81775316-95572180-9527-11ea-8985-5f18f2e5a1a7.PNG)
+으로 수정 (장애상황으로 가정)
+
+(4) 서비스가 뜨면서 정상적으로 event listen
+![image](https://user-images.githubusercontent.com/19707715/81775241-6e005480-9527-11ea-93f6-91a4713d81e6.png)
 
 # 신규 개발 조직의 추가
 
