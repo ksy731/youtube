@@ -562,6 +562,23 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 각 구현체들은 각자의 source repository 에 구성되었고, 사용한 CI/CD 플랫폼은 Azure DevOps를 사용하였으며, Pipeline build script 는 각 프로젝트 폴더 이하에 application.yml 에 작성하였다
 
 
+## Gateway 설정
+
+gateway 배포 확인
+
+![image](https://user-images.githubusercontent.com/19707715/81765504-f1fa1280-950e-11ea-9f36-20e603c905fe.png)
+
+gateway routes 정보
+
+![image](https://user-images.githubusercontent.com/19707715/81765560-1655ef00-950f-11ea-969f-872be1febc8e.png)
+
+
+gateway -> policy로 라우팅 되는지 확인
+
+![image](https://user-images.githubusercontent.com/19707715/81765601-35ed1780-950f-11ea-8fe6-61f40f4bfc63.png)
+
+
+
 ## 장애격리
 
 ### livenessProbe, readinessProbe 설정
