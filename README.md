@@ -601,6 +601,7 @@ kubectl get deploy policy -w
 
 ## 무정지 재배포
 
+왼쪽은 재배포 수행 시 명령어 호출 화면이고, 오른쪽은 Azure DevOps 에서 재배포되는 화면
 
 ![image](https://user-images.githubusercontent.com/19707715/81771712-b2d3bd80-951e-11ea-91d7-31fd46ee2035.png)
 
