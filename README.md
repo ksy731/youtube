@@ -218,7 +218,7 @@
 
 ## 헥사고날 아키텍처 다이어그램 도출
     
-![image](https://user-images.githubusercontent.com/63624229/81647003-45b12100-9467-11ea-998c-171deee11fc9.png)
+![image](https://user-images.githubusercontent.com/63624229/81773545-78205400-9523-11ea-8934-1ea0d1bd1699.png)
 
     - Chris Richardson, MSA Patterns 참고하여 Inbound adaptor와 Outbound adaptor를 구분함
     - 호출관계에서 Pub/Sub 과 Req/Resp 를 구분함
@@ -641,8 +641,8 @@ kubectl get deploy policy -w
  ![image](https://user-images.githubusercontent.com/63624229/81773297-f92b1b80-9522-11ea-86d5-8ad20b723904.png)
 
 
-## 헥사고날 아키텍처 변화 
+## 헥사고날 아키텍처 변화
 
-![image](https://user-images.githubusercontent.com/487999/79685243-1d704100-8272-11ea-8ef6-f4869c509996.png)
+![image](https://user-images.githubusercontent.com/63624229/81773597-a2721180-9523-11ea-911d-faa0c45e519e.png)
 
 
