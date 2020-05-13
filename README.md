@@ -629,12 +629,12 @@ kubectl get deploy policy -w
 
 # 신규 개발 조직의 추가
 
-  ![image](https://user-images.githubusercontent.com/487999/79684133-1d6c4300-826a-11ea-94a2-602e61814ebf.png)
+![image](https://user-images.githubusercontent.com/63624229/81772614-47d7b600-9521-11ea-954c-84dd60ba640c.png)
 
 
-## 마케팅팀의 추가
-    - KPI: 신규 고객의 유입률 증대와 기존 고객의 충성도 향상
-    - 구현계획 마이크로 서비스: 기존 customer 마이크로 서비스를 인수하며, 고객에 음식 및 맛집 추천 서비스 등을 제공할 예정
+## 추천팀의 추가
+    - KPI: 기존 고객의 충성도 향상과 신규 고객의 회원가입 수 증대
+    - 구현 계획 마이크로 서비스: 기존 video 마이크로 서비스를 인수하며, 고객에 음식 및 맛집 추천 서비스 등을 제공할 예정
 
 ## 이벤트 스토밍 
     ![image](https://user-images.githubusercontent.com/487999/79685356-2b729180-8273-11ea-9361-a434065f2249.png)
