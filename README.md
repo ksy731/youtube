@@ -540,9 +540,6 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 
 
 
-
-
-
 # 운영
 
 ## CI/CD 설정
