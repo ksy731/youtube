@@ -648,7 +648,7 @@ kubectl get deploy policy -w
 
 ## 시연 시나리오
 
-```
+
 ### 고객 생성
 http client:8080/clientSystems clientId=1 totalView=0
 
@@ -716,4 +716,4 @@ http DELETE policy:8080/policyManagements/1
 http gateway:8080/videoServices
 http gateway:8080/channelSystems
 http gateway:8080/policyManagements
-```
+
