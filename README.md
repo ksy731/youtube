@@ -640,9 +640,9 @@ Shortest transaction:	        0.00
 
 
 - 정책 관리 서비스에 대한 replica 를 동적으로 늘려주도록 HPA 를 설정한다. 설정은 CPU 사용량이 10%를 넘어서면 replica 를 10개까지 늘려준다:
-```
+
 ![캡처1](https://user-images.githubusercontent.com/19707715/81761721-a5f6a000-9505-11ea-9477-e686f4b8bb72.PNG)
-```
+
 
 - CB 에서 했던 방식대로 워크로드를 2분 동안 걸어준다.
 ```
