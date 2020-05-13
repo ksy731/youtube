@@ -267,16 +267,13 @@ public class VideoService {
     private Long channelId;
     private int viewCount=0;
 
-    @PrePersist
-    public void onPrePersist(){
-
-    }
-
     @PreUpdate
     public void onPostEdited(){
         EditedVideo editedVideo = new EditedVideo();
         BeanUtils.copyProperties(this, editedVideo);
         editedVideo.publishAfterCommit();
+
+        System.out.println(("**********동영상이 수정되었습니다**********"));
     }
 
     @PostPersist
@@ -284,14 +281,17 @@ public class VideoService {
         UploadedVideo uploadedVideo = new UploadedVideo();
         BeanUtils.copyProperties(this, uploadedVideo);
         uploadedVideo.publishAfterCommit();
-    }
 
+        System.out.println(("**********동영상이 업로드되었습니다**********"));
+    }
 
     @PreRemove
     public void onPreRemove(){
         DeletedVideo deletedVideo = new DeletedVideo();
         BeanUtils.copyProperties(this, deletedVideo);
         deletedVideo.publishAfterCommit();
+
+        System.out.println(("**********동영상이 삭제되었습니다**********"));
     }
 
     public Long getVideoId() {
@@ -336,6 +336,7 @@ public class VideoService {
 
 }
 
+
 ```
 - Entity Pattern 과 Repository Pattern 을 적용하여 JPA 를 통하여 다양한 데이터소스 유형 (RDB or NoSQL) 에 대한 별도의 처리가 없도록 데이터 접근 어댑터를 자동 생성하기 위하여 Spring Data REST 의 RestRepository 를 적용하였다
 ```
@@ -355,18 +356,34 @@ public interface VideoServiceRepository extends PagingAndSortingRepository<Video
 
 
 # video 서비스의 동영상 업로드 처리
-http localhost:8081/videoServices videoId=1
+http http://localhost:8083/videoServices videoId=1 clientId=1 viewCount=10
 
-# client 서비스의 회원가입
-http localhost:8083/주문처리s orderId=1
+# video 서비스의 동영상 업로드 조회수 등록 처리 ??????
+http http://localhost:8085/videoServices viewCount=0
 
-# client 서비스의 채널 생성
-http 
+# video 서비스의 동영상 수정 처리
+http PATCH http://localhost:8085/videoServices/1 viewCount=1
 
-# 주문 상태 확인
-http localhost:8081/orders/1
+# video 서비스에서 동영상 수정 처리
+http patch http://localhost;8083/videoServices/1 videoId=1 clientId=1 channelId=1 viewCount=20
+
+# video 서비스의 동영상 수정 시 알림 처리
+http PATCH http://localhost:8085/videoServices/1 channelId=123
+
+# policy 서비스의 환급 신청 확인 처리
+http patch http;//localHost:8081/clientSystems/1 totalView=5000
+
+# policy 서비스의 동영상 삭제 처리
+http DELETE localHost:8081/policyManagements/1
+
+# channel 서비스에서 채널 생성 처리
+http http://localhost;8082/channelSystems
+
+# channel 서비스에서 채널 수정 처리
+http http://localhost;8082/channelSystems totalView=30
 
 ```
+
 
 
 ## 비동기식 호출 / 시간적 디커플링 / 장애격리 / 최종 (Eventual) 일관성 테스트
@@ -380,21 +397,24 @@ http localhost:8081/orders/1
 
 ![image](https://user-images.githubusercontent.com/2732669/81760298-cde40480-9501-11ea-949f-b3653deb902e.png)
 
-
 $ http http://localhost:8085/videoServices viewCount=0
 
 ![image](https://user-images.githubusercontent.com/2732669/81761733-a8f19080-9505-11ea-8acc-75395a201fe4.png)
 
 
---------------
+동영상 관리 시스템에서 동영상 등록 (upload), 수정(edit) 발생 시 해당 동영상 정보를 이벤트로 받아서 정책을 확인한다
 
+![image](https://user-images.githubusercontent.com/19707715/81761439-eace0700-9504-11ea-807e-6777c84aab3b.png)
+
+![image](https://user-images.githubusercontent.com/19707715/81761456-f0c3e800-9504-11ea-8627-24e4a94a815e.png)
+
+----------------------------
 
 고객이 동영상 관리 시스템을 통하여 동영상을 수정하면 채널 관리 시스템에서 동영상 조회수를 증가하는 확인하는 행위는 비동기식으로 처리하여 동영상 조회수 증가가 블로킹되지 않도록 한다.
 
 이를 위하여 동영상 조회수 증가 이력을 기록으로 남긴 후 동영상 조회수가 증가되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
 
---------------
-
+----------------------------
 
 ![image](https://user-images.githubusercontent.com/2732669/81761945-519ff000-9506-11ea-8b79-a782257c18f3.png)
 
@@ -424,7 +444,7 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 --------------
 
 
-고객이 정책 관리 시스템으로 환급 신청을 하는 행위는 비동기식으로 처리하여 환급 신청이 블로킹되지 않도록 처리한다.
+고객이 정책 관리 시스템으로 환급 신청을 하는 행위는 비동기식으로 처리하여 환급 신청이 블로킹되지 않도록 처리한다
 
 이를 위하여 환급 신청 이력을 기록으로 남긴 후 환급 신청 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
 
@@ -433,19 +453,11 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 
 ![환급신청](https://user-images.githubusercontent.com/61961799/81763807-0b995b00-950b-11ea-873b-f48d50b9e720.JPG)
 
+고객 관리 시스템에서 환급 신청 (refund) 정책 검토 요청 시 정책 관리 시스템에서 해당 도메인 이벤트로 받아서 정책을 확인한다
+
+![image](https://user-images.githubusercontent.com/19707715/81761424-e3a6f900-9504-11ea-9ecb-a650a7f4c1e7.png)
+
 ![결과](https://user-images.githubusercontent.com/61961799/81763819-1227d280-950b-11ea-9a1f-d1ba08f4a1e6.JPG)
-
-
-
----------------eventListener-------------------
-
-
-채널에서 조회수 변경발생시 조회수 증가 반영
-
-
-![채널변경](https://user-images.githubusercontent.com/61961799/81764040-95e1bf00-950b-11ea-96c9-ba0ca462bd36.JPG)
-
-![채널변경결과](https://user-images.githubusercontent.com/61961799/81764170-e5c08600-950b-11ea-8f01-74c05ef78914.JPG)
 
 
 ---------------event publish-------------------
@@ -454,6 +466,7 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 이를 위하여 동영상 삭제 요청 이력을 기록으로 남긴 후 동영상 삭제가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
 
 
+```
  @PostRemove
     public void onPostRemove(){
         DeletedPolicy deletedPolicy = new DeletedPolicy();
@@ -462,6 +475,7 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
         System.out.println("###### 정책 위반 ###### video 삭제 요청 event 발생");
         System.out.println("삭제요청 viedo ID : " + deletedPolicy.getDeleteVideoId());
     }
+```
 
 
 ![image](https://user-images.githubusercontent.com/19707715/81760657-cb35df00-9502-11ea-9191-ec60de355585.png)
@@ -469,18 +483,6 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 
 ![image](https://user-images.githubusercontent.com/19707715/81760641-c2450d80-9502-11ea-8610-9f30231fbfea.png)
 
-
----------------event Listener-------------------
-
-(1) client에서 refund 정책 검토 요청시 이벤트로 받아 정책 확인
-
-![image](https://user-images.githubusercontent.com/19707715/81761424-e3a6f900-9504-11ea-9ecb-a650a7f4c1e7.png)
-
-(2) video에서 동영상 upload, edit 발생할 시 해당 동영상 정보를 이벤트로 받아 정책 확인
-
-![image](https://user-images.githubusercontent.com/19707715/81761439-eace0700-9504-11ea-807e-6777c84aab3b.png)
-
-![image](https://user-images.githubusercontent.com/19707715/81761456-f0c3e800-9504-11ea-8627-24e4a94a815e.png)
 
 
 채널 관리 시스템에서 동영상 조회수 증가를 고객 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 조회수 증가가 블로킹되지 않도록 한다.
@@ -490,6 +492,17 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 --------------
 ![image](https://user-images.githubusercontent.com/17778248/81759599-1c909f00-9500-11ea-9301-632a40a5ef38.png)
 --------------
+
+---------------eventListener-------------------
+
+
+채널 관리 시스템에서 조회수 변경 발생 시 조회수 증가 반영
+
+
+![채널변경](https://user-images.githubusercontent.com/61961799/81764040-95e1bf00-950b-11ea-96c9-ba0ca462bd36.JPG)
+
+![채널변경결과](https://user-images.githubusercontent.com/61961799/81764170-e5c08600-950b-11ea-8f01-74c05ef78914.JPG)
+
 
 
 채널 관리 시스템에서 채널 삭제 요청이 들어오면 채널을 삭제하고 해당 채널의 동영상 삭제를 동영상 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 삭제가 블로킹되지 않도록 한다.
@@ -510,7 +523,6 @@ $ http PATCH http://localhost:8085/videoServices/1 channelId=123
 
 
 결과 시나리오
-
 
 1. 동영상을 등록한다 (조회수 10)
 
