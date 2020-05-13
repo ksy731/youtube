@@ -632,12 +632,13 @@ kubectl get deploy policy -w
 
 (2)video 서비스에서 event 5개 발생 (to Policy pod)
 
-
+```
 http video:8080/videoServices videoId=6 clientId=1 channelId=1 viewCount=0
 http video:8080/videoServices videoId=7 clientId=1 channelId=1 viewCount=0
 http video:8080/videoServices videoId=8 clientId=1 channelId=1 viewCount=0
 http video:8080/videoServices videoId=9 clientId=1 channelId=1 viewCount=0
 http video:8080/videoServices videoId=10 clientId=1 channelId=1 viewCount=0
+```
 
 (3)policy pod replica 를 1로 다시 설정
 ![레플리카수 늘리기](https://user-images.githubusercontent.com/19707715/81775316-95572180-9527-11ea-8985-5f18f2e5a1a7.PNG)
