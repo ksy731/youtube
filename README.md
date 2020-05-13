@@ -646,3 +646,73 @@ kubectl get deploy policy -w
 ![image](https://user-images.githubusercontent.com/63624229/81773597-a2721180-9523-11ea-911d-faa0c45e519e.png)
 
 
+### 시연 시나리오
+
+고객 생성
+http client:8080/clientSystems clientId=1 totalView=0
+
+고객이 채널을 생성한다
+
+http channel:8080/channelSystems channelId=1 channelName="channel1" clientId=1 totalView=0
+
+http channel:8080/channelSystems channelId=2 channelName="channel2" clientId=1 totalView=0
+
+http channel:8080/channelSystems
+
+고객이 채널을 수정/삭제 할 수 있다
+http PATCH channel:8080/channelSystems/2 channelName="channel2-1"
+
+http channel:8080/channelSystems
+
+http DELETE channel:8080/channelSystems/2
+
+http channel:8080/channelSystems
+
+고객이 생성된 채널에 동영상을 업로드한다
+http video:8080/videoServices
+
+http video:8080/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
+
+http video:8080/videoServices videoId=2 clientId=1 channelId=1 viewCount=0
+
+http video:8080/videoServices
+
+고객이 업로드한 동영상을 수정/삭제 할 수 있다
+http PATCH video:8080/videoServices/2 viewCount=3
+
+http video:8080/videoServices
+
+http DELETE video:8080/videoServices/2
+
+http video:8080/videoServices
+
+http channel:8080/channelSystems
+
+정책 관리 시스템으로 정책을 등록한다
+http policy:8080/policyManagements policyId=1 refundPolicy=10 deleteVideoId=1
+
+정책 관리 시스템으로 관리자가 정책을 수정할 수 있다
+http PATCH policy:8080/policyManagements/1 policyId=1 refundPolicy=5
+
+정책 관리 시스템이 동영상 등록/수정 시 정책 확인 요청을 받게되며 정책을 확인한다
+kubectl logs -f policy-7d474458bb-2mbsq
+
+http video:8080/videoServices videoId=3 clientId=1 channelId=1 viewCount=0
+
+고객이 동영상에 대하여 정책 관리 시스템에 환급 신청한다
+http client:8080/clientSystems
+
+kubectl logs -f policy-7d474458bb-2mbsq
+
+http PATCH video:8080/videoServices/1 viewCount=100
+
+정책 관리 시스템이 정책 확인하여 정책 위반 시 동영상 삭제를 요청한다
+kubectl logs -f video-5bf778ffc4-d7rxd
+
+http DELETE policy:8080/policyManagements/1
+
+gateway 확인
+http gateway:8080/videoServices
+http gateway:8080/channelSystems
+http gateway:8080/policyManagements
+
