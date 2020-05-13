@@ -380,7 +380,6 @@ http http://localhost;8082/channelSystems totalView=30
 ```
 
 
-
 ## 비동기식 호출 / 시간적 디커플링 / 장애격리 / 최종 (Eventual) 일관성 테스트
 
 
