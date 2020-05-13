@@ -647,10 +647,11 @@ Shortest transaction:	        0.00
 - CB 에서 했던 방식대로 워크로드를 2분 동안 걸어준다.
 ```
 siege -c100 -t120S -r10 --content-type "application/json" 'http://policy:8080/policyManagements POST {"deleteVideoId": "1"}'
+```
 
 ![부하](https://user-images.githubusercontent.com/19707715/81762134-cecb6500-9506-11ea-8dc1-f8bb1458aefd.PNG)
 
-```
+
 - 오토스케일이 어떻게 되고 있는지 모니터링을 걸어둔다:
 ```
 kubectl get deploy policy -w
