@@ -643,7 +643,7 @@ kubectl get deploy policy -w
 
 ## 헥사고날 아키텍처 변화
 
-![image](https://user-images.githubusercontent.com/63624229/81773597-a2721180-9523-11ea-911d-faa0c45e519e.png)
+![image](https://user-images.githubusercontent.com/63624229/81775268-7b1d4380-9527-11ea-9185-80a977ae7095.png)
 
 
 ## 시연 시나리오
