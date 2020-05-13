@@ -359,6 +359,9 @@ public interface VideoServiceRepository extends PagingAndSortingRepository<Video
 - 적용 후 REST API 의 테스트
 ```
 
+# client 서비스의 회원 가입 처리
+http http://localhost:8081/clientSystems clientId=20
+
 # video 서비스의 동영상 업로드 처리
 http http://localhost:8083/videoServices videoId=1 clientId=1 viewCount=10
 
