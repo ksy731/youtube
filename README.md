@@ -59,7 +59,7 @@
     3. 고객이 환급신청 시 환급 정책에 맞는지 확인되어야 한다        Async 호출
 1. 장애격리
     1. 고객 관리 서비스가 수행되지 않더라도 동영상 서비스는 365일 24시간 받을 수 있어야 한다  Async (event-driven), Eventual Consistency
-    2. 정책 관리 서비스 사용이 과중되면 사용자를 잠시동안 받지 않고 잠시 후에 하도록 유도한다  Circuit breaker, fallback
+    2. 정책 관리 서비스 사용이 과중되면 사용자를 잠시동안 받지 않고 잠시 후에 하도록 유도한다
 1. 성능
     1. 정책에 따라 동영상의 상태가 변경될 때마다 카톡 등으로 알림을 줄 수 있어야 한다  Event driven
 
@@ -378,9 +378,6 @@ http http://localhost:8081/clientSystems clientId=20
 
 # video 서비스의 동영상 업로드 처리
 http http://localhost:8083/videoServices videoId=1 clientId=1 viewCount=10
-
-# video 서비스의 동영상 업로드 조회수 등록 처리 ??????
-http http://localhost:8085/videoServices viewCount=0
 
 # video 서비스의 동영상 수정 처리
 http PATCH http://localhost:8085/videoServices/1 viewCount=1
