@@ -372,26 +372,19 @@ http localhost:8081/orders/1
 ## 비동기식 호출 / 시간적 디커플링 / 장애격리 / 최종 (Eventual) 일관성 테스트
 
 
-고객이 정책 관리 시스템으로 환급 신청을 하는 행위는 비동기식으로 처리하여 환급 신청이 블로킹되지 않도록 처리한다.
-
-이를 위하여 환급 신청 이력을 기록으로 남긴 후 환급 신청 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
-
-
---------------
-
-소스코드랑 결과 화면 붙여주세요 (황윤선)
-
---------------
-
-
 고객이 동영상 관리 시스템을 통하여 동영상을 업로드하면 정책 관리 시스템에서 동영상이 정책에 위반되지 않았는지 정책 확인하는 행위는 비동기식으로 처리하여 정책 확인이 블로킹되지 않도록 한다.
 
 이를 위하여 동영상 업로드 이력을 기록으로 남긴 후 동영상 업로드가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
 
-
 --------------
 
-소스코드랑 결과 화면 붙여주세요 (배중욱)
+![image](https://user-images.githubusercontent.com/2732669/81760298-cde40480-9501-11ea-949f-b3653deb902e.png)
+
+
+$ http http://localhost:8085/videoServices viewCount=0
+
+![image](https://user-images.githubusercontent.com/2732669/81761733-a8f19080-9505-11ea-8acc-75395a201fe4.png)
+
 
 --------------
 
@@ -400,44 +393,19 @@ http localhost:8081/orders/1
 
 이를 위하여 동영상 조회수 증가 이력을 기록으로 남긴 후 동영상 조회수가 증가되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
 
-
 --------------
 
-소스코드랑 결과 화면 붙여주세요 (배중욱)
 
---------------
+![image](https://user-images.githubusercontent.com/2732669/81761945-519ff000-9506-11ea-8b79-a782257c18f3.png)
 
-정책 관리 시스템에서 정책에 위반되는 동영상 삭제를 동영상 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 삭제 요청이 블로킹되지 않도록 한다.
+ㅇ viewCount를 수정하여 조회수 증가
+$ http PATCH http://localhost:8085/videoServices/1 viewCount=1
 
-이를 위하여 동영상 삭제 요청 이력을 기록으로 남긴 후 동영상 삭제가  완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
-
-
---------------
-
-소스코드랑 결과 화면 붙여주세요 (이규현)
-
---------------
-
-채널 관리 시스템에서 동영상 조회수 증가를 고객 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 조회수 증가가 블로킹되지 않도록 한다.
-
-이를 위하여 동영상 조회수 증가 요청 이력을 기록으로 남긴 후 동영상 조회수 증가가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
+![image](https://user-images.githubusercontent.com/2732669/81761928-41881080-9506-11ea-822b-6ecf87ffabac.png)
 
 
 --------------
 
-소스코드랑 결과 화면 붙여주세요 (강령현)
-
---------------
-
-채널 관리 시스템에서 채널 삭제 요청이 들어오면 채널을 삭제하고 해당 채널의 동영상 삭제를 동영상 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 삭제가 블로킹되지 않도록 한다.
-
-이를 위하여 동영상 삭제 요청 이력을 기록으로 남긴 후 동영상 삭제가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
-
---------------
-
-소스코드랑 결과 화면 붙여주세요 (강령현)
-
---------------
 
 동영상 관리 시스템에서 동영상 상태가 변경될 때마다 알림을 주는 행위는 비동기식으로 처리하여 알림이 블로킹되지 않도록 한다.
 
@@ -445,9 +413,133 @@ http localhost:8081/orders/1
 
 --------------
 
-소스코드랑 결과 화면 붙여주세요 (배중욱)
+
+![image](https://user-images.githubusercontent.com/2732669/81760397-08e63800-9502-11ea-88aa-50e485f927a4.png)
+
+$ http PATCH http://localhost:8085/videoServices/1 channelId=123
+
+![image](https://user-images.githubusercontent.com/2732669/81762610-0686dc80-9508-11ea-9b94-7d976a6dde22.png)
+
 
 --------------
+
+
+고객이 정책 관리 시스템으로 환급 신청을 하는 행위는 비동기식으로 처리하여 환급 신청이 블로킹되지 않도록 처리한다.
+
+이를 위하여 환급 신청 이력을 기록으로 남긴 후 환급 신청 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
+
+
+![환급신청됨](https://user-images.githubusercontent.com/61961799/81763813-0dfbb500-950b-11ea-9c3f-31abbe6706c5.JPG)
+
+![환급신청](https://user-images.githubusercontent.com/61961799/81763807-0b995b00-950b-11ea-873b-f48d50b9e720.JPG)
+
+![결과](https://user-images.githubusercontent.com/61961799/81763819-1227d280-950b-11ea-9a1f-d1ba08f4a1e6.JPG)
+
+
+
+---------------eventListener-------------------
+
+
+채널에서 조회수 변경발생시 조회수 증가 반영
+
+
+![채널변경](https://user-images.githubusercontent.com/61961799/81764040-95e1bf00-950b-11ea-96c9-ba0ca462bd36.JPG)
+
+![채널변경결과](https://user-images.githubusercontent.com/61961799/81764170-e5c08600-950b-11ea-8f01-74c05ef78914.JPG)
+
+
+---------------event publish-------------------
+
+정책 관리 시스템에서 정책에 위반되는 동영상 삭제를 동영상 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 삭제 요청을 video 서비스에게 요청한다.
+이를 위하여 동영상 삭제 요청 이력을 기록으로 남긴 후 동영상 삭제가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
+
+
+ @PostRemove
+    public void onPostRemove(){
+        DeletedPolicy deletedPolicy = new DeletedPolicy();
+        BeanUtils.copyProperties(this, deletedPolicy);
+        deletedPolicy.publishAfterCommit();
+        System.out.println("###### 정책 위반 ###### video 삭제 요청 event 발생");
+        System.out.println("삭제요청 viedo ID : " + deletedPolicy.getDeleteVideoId());
+    }
+
+
+![image](https://user-images.githubusercontent.com/19707715/81760657-cb35df00-9502-11ea-9191-ec60de355585.png)
+
+
+![image](https://user-images.githubusercontent.com/19707715/81760641-c2450d80-9502-11ea-8610-9f30231fbfea.png)
+
+
+---------------event Listener-------------------
+
+(1) client에서 refund 정책 검토 요청시 이벤트로 받아 정책 확인
+
+![image](https://user-images.githubusercontent.com/19707715/81761424-e3a6f900-9504-11ea-9ecb-a650a7f4c1e7.png)
+
+(2) video에서 동영상 upload, edit 발생할 시 해당 동영상 정보를 이벤트로 받아 정책 확인
+
+![image](https://user-images.githubusercontent.com/19707715/81761439-eace0700-9504-11ea-807e-6777c84aab3b.png)
+
+![image](https://user-images.githubusercontent.com/19707715/81761456-f0c3e800-9504-11ea-8627-24e4a94a815e.png)
+
+
+채널 관리 시스템에서 동영상 조회수 증가를 고객 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 조회수 증가가 블로킹되지 않도록 한다.
+
+이를 위하여 동영상 조회수 증가 요청 이력을 기록으로 남긴 후 동영상 조회수 증가가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
+
+--------------
+![image](https://user-images.githubusercontent.com/17778248/81759599-1c909f00-9500-11ea-9301-632a40a5ef38.png)
+--------------
+
+
+채널 관리 시스템에서 채널 삭제 요청이 들어오면 채널을 삭제하고 해당 채널의 동영상 삭제를 동영상 관리 시스템에 요청하는 행위는 비동기식으로 처리하여 동영상 삭제가 블로킹되지 않도록 한다.
+
+이를 위하여 동영상 삭제 요청 이력을 기록으로 남긴 후 동영상 삭제가 완료되었다는 도메인 이벤트를 카프카로 송출한다 (Publish)
+
+--------------
+
+![image](https://user-images.githubusercontent.com/17778248/81759709-64172b00-9500-11ea-9f38-296166dbcd32.png)
+
+--------------
+
+채널관리시스템에서는 동영상 업로드 이벤트에 대해서 이를 수신하여 자신의 정책에서 채널에 동영상을 등록하는  PolicyHandler 를 구현한다
+
+--------------
+
+![image](https://user-images.githubusercontent.com/17778248/81761000-b9087080-9503-11ea-9d2f-92bb77dc1837.png)
+
+
+결과 시나리오
+
+
+1. 동영상을 등록한다 (조회수 10)
+
+![image](https://user-images.githubusercontent.com/17778248/81763083-51552400-9509-11ea-9969-611a6cab0622.png)
+
+2. 채널이 신규생성되며 동영상이 등록된다
+
+![image](https://user-images.githubusercontent.com/17778248/81763134-777ac400-9509-11ea-84a6-d1df51dc53cf.png)
+
+3. 동영상을 수정한다 (조회수 20 증가)
+
+![image](https://user-images.githubusercontent.com/17778248/81763177-8eb9b180-9509-11ea-95db-b750f39d99bc.png)
+
+4. 채널이 수정된다 (기존 조회수 10에서 20이 증가하여 30이 된다)
+
+![image](https://user-images.githubusercontent.com/17778248/81763235-bf99e680-9509-11ea-938b-caa26ae87125.png)
+
+--------------
+
+
+채널관리시스템에서는 동영상 수정(조회수 증가 포함) 이벤트에 대해서 이를 수신하여 자신의 정책에서 채널 정보를 수정하는  PolicyHandler 를 구현한다
+
+--------------
+![image](https://user-images.githubusercontent.com/17778248/81761022-c7ef2300-9503-11ea-86b9-7355a9c24235.png)
+--------------
+
+
+
+
 
 
 
