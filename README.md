@@ -718,13 +718,6 @@ http localhost:8088/commentServices commentId=2 videoId=1 clientId=1 contents="w
 http localhost:8088/commentServices commentId=3 videoId=1 clientId=1 contents="work hard3"
 http localhost:8088/commentServices commentId=4 videoId=1 clientId=1 contents="work hard4"
 
-### 고객이 업로드한 동영상에 댓글 등록수를 1 증가한다
-http DELETE video:8080/videoServices/1
-
-
-
-
-
 
 
 ==== 추후
@@ -740,7 +733,6 @@ http DELETE video:8080/videoServices/1
 
 ### 동영상에 등록된 댓글 삭제를 확인한다
 http comment:8080/commentServices/2
-
 
 
 
