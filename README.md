@@ -691,7 +691,7 @@ http comment:8080/commentServices commentId=1 channelId=1 clientId=1 contents="h
 http comment:8080/commentServices commentId=1 contents="hello world"
 
 ## 고객이 채널 댓글을 삭제한다
-http DELETE comment:8080/commentServices commentId=1
+http DELETE comment:8080/commentServices/1
 
 
 
