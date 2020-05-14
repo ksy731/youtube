@@ -679,70 +679,38 @@ http video:8080/videoServices videoId=10 clientId=1 channelId=1 viewCount=0
 
 ```
 ### 고객 생성
-http client:8080/clientSystems clientId=1 totalView=0
+http http://client:8080/clientSystems clientId=1 totalView=0
 
 ### 고객이 채널을 생성한다
-http channel:8080/channelSystems channelId=1 channelName="channel1" clientId=1 totalView=0
+http http://channel:8080/channelSystems channelId=1 channelName="channel1" clientId=1 totalView=0
 
 ## 고객이 채널 댓글을 등록한다
-http comment:8080/commentServices commentId=1 channelId=1 clientId=1 contents="hahahahahaha"
+http http://comment:8080/commentServices commentId=1 channelId=1 clientId=1 contents="hahahahahaha"
 
 ## 고객이 채널 댓글을 수정한다
-http PATCH comment:8080/commentServices/1 contents="hello world"
+http PATCH http://comment:8080/commentServices/1 contents="hello world"
 
 ## 고객이 채널 댓글을 삭제한다
-http DELETE comment:8080/commentServices/1
+http DELETE http://comment:8080/commentServices/1
 
 
 
 ### 고객이 생성된 채널에 동영상을 업로드한다
-http video:8080/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
+http http://video:8080/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
 
 ### 고객이 업로드한 동영상에 댓글을 등록한다
-http comment:8080/commentServices commentId=2 videoId=2 clientId=1 contents="work hard"
+http http://comment:8080/commentServices commentId=1 videoId=1 clientId=1 contents="work hard1"
+http http://comment:8080/commentServices commentId=1 videoId=1 clientId=1 contents="work hard2"
+http http://comment:8080/commentServices commentId=1 videoId=1 clientId=1 contents="work hard3"
 
 ### 고객이 업로드한 동영상에 댓글 등록수를 1 증가를 확인한다
-http comment:8080/commentServices 
-
-
-
-
-
-
-### 고객이 생성된 채널에 동영상을 업로드한다
-http localhost:8088/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
-
-### 고객이 업로드한 동영상에 댓글을 등록한다
-http localhost:8088/commentServices commentId=1 videoId=1 clientId=1 contents="work hard"
-http localhost:8088/commentServices commentId=2 videoId=1 clientId=1 contents="work hard2"
-http localhost:8088/commentServices commentId=3 videoId=1 clientId=1 contents="work hard3"
-http localhost:8088/commentServices commentId=4 videoId=1 clientId=1 contents="work hard4"
-
-
-
-==== 추후
-
-### 고객이 생성된 채널에 동영상을 업로드한다
-http video:8080/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
-
-### 고객이 업로드한 동영상에 댓글을 등록한다
-http comment:8080/commentServices commentId=2 videoId=2 clientId=1 contents="work hard"
-
-### 고객이 업로드한 동영상을 삭제한다
-http DELETE video:8080/videoServices/1
-
-### 동영상에 등록된 댓글 삭제를 확인한다
-http comment:8080/commentServices/2
-
-
+http http://comment:8080/commentServices 
 
 
 # gateway 확인
-http gateway:8080/commentServices
+http http://gateway:8080/commentServices
+
 ```
-
-
-
 
 
 ## 시연 시나리오
