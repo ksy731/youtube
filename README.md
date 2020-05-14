@@ -678,8 +678,21 @@ http video:8080/videoServices videoId=10 clientId=1 channelId=1 viewCount=0
 
 
 ```
-# comment 실행
-http comment:8080/commentServices
+### 고객 생성
+http client:8080/clientSystems clientId=1 totalView=0
+
+### 고객이 채널을 생성한다
+http channel:8080/channelSystems channelId=1 channelName="channel1" clientId=1 totalView=0
+
+## 고객이 채널 댓글을 등록한다
+http comment:8080/commentServices commentId=1 channelId=1 clientId=1 contents="hahahahahaha"
+
+## 고객이 채널 댓글을 수정한다
+http comment:8080/commentServices commentId=1 contents="hello world"
+
+## 고객이 채널 댓글을 삭제한다
+http DELETE comment:8080/commentServices commentId=1
+
 
 
 # gateway 확인
