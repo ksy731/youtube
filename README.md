@@ -688,10 +688,13 @@ http channel:8080/channelSystems channelId=1 channelName="channel1" clientId=1 t
 http comment:8080/commentServices commentId=1 channelId=1 clientId=1 contents="hahahahahaha"
 
 ## 고객이 채널 댓글을 수정한다
-http comment:8080/commentServices commentId=1 contents="hello world"
+http PATCH comment:8080/commentServices/1 contents="hello world"
 
 ## 고객이 채널 댓글을 삭제한다
 http DELETE comment:8080/commentServices/1
+
+
+
 
 
 
