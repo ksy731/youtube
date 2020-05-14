@@ -677,6 +677,14 @@ http video:8080/videoServices videoId=10 clientId=1 channelId=1 viewCount=0
 ![image](https://user-images.githubusercontent.com/63624229/81775268-7b1d4380-9527-11ea-9185-80a977ae7095.png)
 
 
+```
+http comment:8080/clientSystems
+```
+
+
+
+
+
 ## 시연 시나리오
 
 ```
