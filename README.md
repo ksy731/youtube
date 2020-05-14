@@ -678,7 +678,12 @@ http video:8080/videoServices videoId=10 clientId=1 channelId=1 viewCount=0
 
 
 ```
-http comment:8080/clientSystems
+# comment 실행
+http comment:8080/commentServices
+
+
+# gateway 확인
+http gateway:8080/commentServices
 ```
 
 
