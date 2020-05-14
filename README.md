@@ -701,8 +701,27 @@ http video:8080/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
 ### 고객이 업로드한 동영상에 댓글을 등록한다
 http comment:8080/commentServices commentId=2 videoId=2 clientId=1 contents="work hard"
 
+### 고객이 업로드한 동영상에 댓글 등록수를 1 증가를 확인한다
+http comment:8080/commentServices 
+
+
+
+
+
+
+### 고객이 생성된 채널에 동영상을 업로드한다
+http localhost:8088/videoServices videoId=1 clientId=1 channelId=1 viewCount=0
+
+### 고객이 업로드한 동영상에 댓글을 등록한다
+http localhost:8088/commentServices commentId=1 videoId=1 clientId=1 contents="work hard"
+http localhost:8088/commentServices commentId=2 videoId=1 clientId=1 contents="work hard2"
+http localhost:8088/commentServices commentId=3 videoId=1 clientId=1 contents="work hard3"
+http localhost:8088/commentServices commentId=4 videoId=1 clientId=1 contents="work hard4"
+
 ### 고객이 업로드한 동영상에 댓글 등록수를 1 증가한다
 http DELETE video:8080/videoServices/1
+
+
 
 
 
